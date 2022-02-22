@@ -1,0 +1,108 @@
+@font-face {
+    font-family: navbar-font;
+    src: url("/Content/assets/fonts/Andromeda-eR2n.ttf");
+}
+
+@font-face {
+    font-family: body-font;
+    src: url("/Content/assets/fonts/Updated/capsuula/capsuula.ttf");
+}
+
+@font-face {
+    font-family: heading-font;
+    src: url("/Content/assets/fonts/Updated/vonique-92/Vonique.otf")
+}
+
+body {
+    background-image: url(/Content/assets/images/Sec2bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#product-container{
+    width:100%;
+    height:100vh;
+    padding-left:25px;
+    padding-right:25px;
+    position:relative;
+    margin-top:80px;
+    padding-bottom:20px;
+}
+#product-container h1{
+    text-align:center;
+    font-family:heading-font;
+    color:#c3c3c3;
+}
+.product-card {
+    margin-top:20px;
+    position:relative;
+    width:fit-content();
+    height:477px;
+    background:rgba(255,255,255,0.0);
+    box-shadow: 0 15px 25px rgba(0,0,0,5);
+    border: 1px solid rgb(255,255,255,0.5);
+    border-radius:10px;
+    backdrop-filter: blur(10px);
+    padding:2px 5px;
+    align-items:center;
+    margin-bottom:20px;
+}
+.product-img {
+    transform: scale(0.6);
+    margin-top: -80px;
+    margin-bottom: -62px;
+    margin-left: -52px;
+    margin-right: -85px;
+    align-items:center;
+    transition: 0.25s;
+}
+.product-img:hover {
+    transform: scale(0.65);
+    height: 477px;
+    margin-top: -120px;
+}
+.product-card h3{
+    font-family:heading-font;
+    text-transform: uppercase;
+    text-align:center;
+    padding-top:5px;
+    color:#c3c3c3;
+    height:71px;
+
+}
+.product-card h5 {
+    font-family: body-font;
+    text-align: center;
+    color: #c3c3c3;
+}
+.card-btn {
+    font-family: navbar-font;
+    padding: 5px 5px;
+    display: inline-block;
+    color: #C3C3C3;
+    letter-spacing: 4px;
+    text-decoration: none;
+    font-size: 20px;
+    overflow: hidden;
+    transition: 0.2s;
+    border-color: #C3C3C3;
+    border-radius:5px;
+    margin-bottom:3px;
+    margin-left:9px;
+    text-align:center;
+}
+.card-btn:hover{
+    color: #4A4A4A;
+    background: #C3C3C3;
+    box-shadow: 0 0 10px #C3C3C3, 0 0 40px #C3C3C3, 0 0 80px #C3C3C3;
+    transition-delay: 0.1s;
+    border-color: #4A4A4A;
+}
+.bg-dark {
+    background: transparent !important;
+    transition: 0.75s ease;
+}
+
+.bg-dark.scrolled {
+    background: #000 !important;
+}

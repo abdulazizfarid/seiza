@@ -1,0 +1,43 @@
+﻿@model SEIZA.Models.Orders
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details - S E I Z A</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/styles-details.css">
+</head>
+<body>
+    <div class="form-container">
+        @using (Html.BeginForm("Checkout", "Home", FormMethod.Post))
+        {
+            <h4 class="h4text">First name: </h4>
+            <input class ="txtBox" type="text" name="fname" placeholder="Enter your first name..." required />
+
+            <h4 class="h4text">Last name: </h4>
+            <input class ="txtBox" type="text" name="lname" placeholder="Enter your last name..." required />
+
+            <h4 class="h4text">Number: </h4>
+            <input class ="txtBox" type="text" name="num" placeholder="+923xxxxxxxx" required />
+
+            <h4 class="h4text">Email Address: </h4>
+            <input class ="txtBox" type="text" name="email" placeholder="abc@xyz.com" required />
+
+            <h4 class="h4text">Address: </h4>
+            <textarea class ="txtBox" type="text" name="address" placeholder="Enter complete address..." required></textarea>
+            
+            <div class="chkoutBtn">
+                <input id="checkoutBtn" type="submit" value="Checkout!" />
+            </div>
+            
+        }
+    </div>
+
+</body>
+</html>

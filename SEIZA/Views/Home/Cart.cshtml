@@ -1,0 +1,147 @@
+﻿@model SEIZA.Models.Cart
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var Product_Name = ViewBag.cartNames as string[];
+    var Product_ID = ViewBag.cartProdID as int[];
+    var img_src = ViewBag.cartSrc as string[];
+    var Prices = ViewBag.cartPrices as int[];
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - S E I Z A</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/styles-cart.css">
+</head>
+
+<body>
+    <div class="small-container cart-page">
+        <table onload="calculateTotal(@ViewBag.cartCount)">
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            @for (int i = 0; i < ViewBag.cartCount; i++)
+            {
+                <tr onload="itemSubtotal(@i)">
+                    <td>
+                        <div class="product-info">
+                            <img src="@img_src[i]" alt="image" height="150" width="100" />
+                            <div>
+                                <a href="#">@Product_Name[i]</a>
+                                <br>
+                                @{
+                                    string BtnName = "removeBtn" + i.ToString();
+                                    string PriceName = "Price" + i.ToString();
+                                }
+                                <small>Price: </small><small id="@PriceName" onchange="calculateTotal(@ViewBag.cartCount)">@Prices[i]</small>
+                                <br>
+
+                                @using (Html.BeginForm("Cart", "Home", FormMethod.Post))
+                                {
+                                    <a href="#" onclick="document.getElementById('@BtnName').click();">Remove</a>
+                                    <input type="text" name="RemoveName" value="@Product_Name[i]" hidden />
+                                    <input type="text" name="RemoveID" value="@Product_ID[i]" hidden />
+                                    <input type="text" name="Mode" value="Remove" hidden />
+                                    <input type="submit" id="@BtnName" value="Submit" hidden />
+                                }
+                            </div>
+                        </div>
+                    </td>
+                    @{
+                        string subtotal = "subtotal" + i.ToString();
+                        string qty = "qty" + i.ToString();
+                    }
+                    <td><input type="number" id="@qty" value="1" onchange="itemSubtotal(@i); calculateTotal(@ViewBag.cartCount)" /></td>
+
+                    <td id="@subtotal">Rs. @Prices[i]</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+    @if (ViewBag.cartCount == 0)
+    {
+        <h2 id="empty">Your Cart is Empty!</h2>
+    }
+    else
+    {
+        <!--Final Total-->
+        <div class="total-price">
+            <table>
+                <tr>
+                    <td>Subtotal:</td>
+                    <td id="TotalPrice">Rs. 0</td>
+                </tr>
+                <tr>
+                    <td>Delivery:</td>
+                    <td>Rs. 200</td>
+                </tr>
+                <tr>
+                    <td>Total:</td>
+                    <td id="FinalTotal">Rs. 0</td>
+                </tr>
+            </table>
+        </div>
+        <div class="detailsBtn">
+            <a id="detailsBtn" href="~/Home/Details">Next</a>
+        </div>
+        
+    }
+
+
+
+    <script>
+        calculateTotal(@ViewBag.cartCount);
+        function itemSubtotal(elementIndex) {
+            var subtotalID = "subtotal" + elementIndex;
+            var qtyID = "qty" + elementIndex;
+            var priceID = "Price" + elementIndex;
+
+            let subtotal = document.getElementById(subtotalID);
+            let qty = document.getElementById(qtyID);
+            let price = document.getElementById(priceID);
+            var subtotalPrice = price.innerHTML * qty.value;
+            console.log('Price: ', price.innerHTML);
+            console.log('Quantitiy: ', qty.value);
+            console.log('Total: ', subtotalPrice);
+            subtotal.innerHTML = "Rs. " + subtotalPrice;
+
+        }
+
+        function calculateTotal(n) {
+            var total = 0;
+            for (var i = 0; i < n; i++) {
+                subtotalID = "subtotal" + i;
+                let subtotal = document.getElementById(subtotalID);
+                var price = subtotal.innerHTML;
+                var res = price.split(" ");
+                total = total + parseInt(res[1]);
+                console.log("Final Total: ", total);
+
+            }
+            document.getElementById('TotalPrice').innerHTML = 'Rs. ' + total;
+            document.getElementById('FinalTotal').innerHTML = 'Rs. ' + (total + 200);
+        }
+        window.addEventListener('scroll', function () {
+            var navbar = this.document.getElementById("#navbar");
+            let windowPosition = window.scrollY > 30;
+            if (windowPosition) {
+                navbar.classList.add("scrolled")
+                navbar.classList.remove("noScroll")
+            }
+            else {
+                navbar.classList.remove("scrolled")
+                navbar.classList.add("noScroll")
+            }
+        })
+    </script>
+</body>
+</html>
+
+

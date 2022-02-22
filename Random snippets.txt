@@ -1,0 +1,46 @@
+                <div class="col">
+                    <div class="product-card">
+                        <h3>Cosmic</h3>
+                        <img class="product-img " src="~/Content/assets/images/StarMaps/Temp.png" />
+                        <h5>Cost: $100</h5>
+                        <a class="card-btn" href="#">Select Design</a>
+                    </div>
+                </div>
+
+
+
+
+~/Content/assets/images/StarMaps/BlackDeck-1.png
+~/Content/assets/images/StarMaps/BlackDeck-1.png
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+
+    <script>
+        window.addEventListener('scroll', function () {
+            let header = document.querySelector('header');
+            let windowPosition = window.scrollY > 0;
+            header.classList.toggle('scrolling-active', windowPosition);
+        })
+
+        $(window).scroll(function () {
+            $('navbar').toggleClass('scrolled', $(this).scrollTop() > 100);
+        });
+    </script>
+
+
+
+---
+window.addEventListener('scroll', function () {
+            var navbar = this.document.getElementById("#navbar");
+            let windowPosition = window.scrollY > 200;
+            if (windowPosition) {
+                navbar.classList.add("scrolled")
+                navbar.classList.remove("noScroll")
+            }
+            else {
+                navbar.classList.remove("scrolled")
+                navbar.classList.add("noScroll")
+            }
+            console.log(windowPosition);
+            console.log("def");
+        })

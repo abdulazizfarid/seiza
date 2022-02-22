@@ -1,0 +1,61 @@
+﻿@{ 
+    var Product_Name = ViewBag.names as string[];
+    var Product_ID = ViewBag.prodID as int[];
+    var img_src = ViewBag.src as string[];
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/styles-designs.css">
+
+</head>
+<body>
+    <div class="container-fluid" id="product-container">
+        <h1>Designs</h1>
+        <div class="row row-cols-4">
+            @for (int i = 0; i < ViewBag.count; i++)
+            {
+                <div class="col">
+                    <div style="width:fit-content();" class="product-card">
+                        @{ 
+                            string BtnName = "TempBtn" + i.ToString();
+                        }
+                        <h3 id="@Product_ID[i]">@Product_Name[i]</h3>
+                        <img class="product-img" src="@img_src[i]" width="322" height="447" />
+                        <h5>Cost: $100</h5>
+                        @using (Html.BeginForm("ItemPage", "Home", FormMethod.Post)){
+                            <a class="card-btn" onclick="document.getElementById('@BtnName').click();">Select Design</a>
+                            <input type="text" name="ProductName" value="@Product_Name[i]" hidden />
+                            <input type="submit" class="TempBtn" id="@BtnName" value="Submit" hidden />
+                        }
+
+
+
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function () {
+            var navbar = this.document.getElementById("#navbar");
+            let windowPosition = window.scrollY > 200;
+            if (windowPosition) {
+                navbar.classList.add("scrolled")
+                navbar.classList.remove("noScroll")
+            }
+            else {
+                navbar.classList.remove("scrolled")
+                navbar.classList.add("noScroll")
+            }
+            console.log(windowPosition);
+            console.log("def");
+        })
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,137 @@
+﻿@font-face {
+    font-family: body-font;
+    src: url("/Content/assets/fonts/Updated/capsuula/capsuula.ttf");
+}
+@font-face {
+    font-family: navbar-font;
+    src: url("/Content/assets/fonts/Andromeda-eR2n.ttf");
+}
+
+@font-face {
+    font-family: heading-font;
+    src: url("/Content/assets/fonts/Updated/vonique-92/Vonique.otf")
+}
+.col-md-7{
+    color:#C3C3C3;
+    width:fit-content();
+}
+.col-md-5 {
+    border-color: black;
+    border-style: solid;
+    height: 530px;
+    border-width: 2px;
+    
+    
+}
+#title{
+    font-family:navbar-font;
+}
+.description{
+    font-family:body-font;
+}
+#price{
+    font-family:heading-font;
+}
+.radio{
+    display:inline-block;
+}
+.container {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-color:black;
+    border-style:solid;
+    border-width: 2px;
+    padding-bottom: 10px;
+    
+}
+
+body {
+    background-image: url(/Content/assets/images/Sec2bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.description{
+    color:#C3C3C3;
+}
+.txtBox{
+    font-family:body-font;
+    display:block;
+}
+.maintxt{
+    color:#F3F3F3;
+    display:inline;
+    font-family:body-font;
+    font-size: 18px;
+}
+.radioCaption{
+    display:inline-block;
+}
+.maintxt {
+    font-family: navbar-font;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    display: inline-block;
+    line-height: 18px;
+    padding: 10px 0 2px 0;
+    padding-right: .5em;
+    margin-bottom: -5px;
+}
+.subtxt {
+    display: inline-block;
+    color:#C3C3C3;
+    font-size: 14px;
+    line-height: 26px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: -5px;
+}
+.submitBtn{
+    margin-top: 10px;
+}
+
+.txtBox {
+    width: 100%;
+    line-height: 25px;
+    padding: 5px 2px;
+    border: 1px solid #aaa;
+    background: #fff;
+    box-shadow: none;
+    outline: 0;
+    box-sizing: border-box;
+    margin-top:5px;
+}
+#size{
+    display:block;
+}
+
+#submitBtn{
+    font-family: navbar-font;
+    background: #3b3d3f;
+    padding: 0px 5px;
+    display: inline-block;
+    color: #C3C3C3;
+    letter-spacing: 0px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+    border: 2px solid black;
+    border-color: #C3C3C3;
+}
+#submitBtn:hover {
+    color: #4A4A4A;
+    background: #C3C3C3;
+    box-shadow: 0 0 10px #C3C3C3, 0 0 40px #C3C3C3, 0 0 80px #C3C3C3;
+    transition-delay: 0.1s;
+    border-color: #4A4A4A;
+}
+.submitBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    
+}

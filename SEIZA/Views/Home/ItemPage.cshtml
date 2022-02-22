@@ -1,0 +1,140 @@
+﻿@{
+    var Product_Name = ViewBag.names as string[];
+    var img_src = ViewBag.src as string[];
+    var Product_ID = ViewBag.prodID as int[];
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/styles-item.css">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/assets/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <!-- JavaScript Bundle with Popper -->
+    <script>src = "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"</script>
+    <script src="~/Content/assets/bootstrap/bootstrap.bundle.min.js"></script>
+    <style>
+        /*USE THIS STYLING IF YOU WANT TO CHANGE THE COLOR OF NAVBAR ON NO SCROLL LATER ON*/
+        /*.noScrolled {
+            background: rgb(128 128 128/0.95) !important;
+            transition: 0.75s ease;
+        }*/
+        body{
+            background-color:#000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 image">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="@img_src[0]" class="d-block w-100" alt="Pic1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="@img_src[0]" class="d-block w-100" alt="Pic2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="@img_src[0]" class="d-block w-100" alt="Pic3">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <p class="newarrival text-center">NEW</p>
+                <h2 id="title">@Product_Name[0]</h2>
+                <p id="price">Rs. 2,800.00 - Rs. 3,200.00</p>
+                <ul class="description">
+                    <li>Made to order star map of your special moment with custom title and an optional sub-title</li>
+                    <li>High resolution art quality print</li>
+                    <li>Beautifully Gift Wrapped</li>
+                    <li>Free Shipping Nationwide</li>
+                </ul>
+                @using (Html.BeginForm("Cart", "Home", FormMethod.Post))
+                {
+                    <div>
+                        <h4 class="maintxt" id="size">Size:</h4>
+                        <input class="radio" type="radio" name="size" value="A3"><p class="radioCaption">A3 (Rs. 3,200)</p>
+                        <br>
+                        <input class="radio" type="radio" name="size" value="A4"><p class="radioCaption">A4 (Rs. 2,800)</p>
+                    </div>
+                    <div>
+                        <h4 class="maintxt">Main Title:</h4>
+                        <input class="txtBox" type="text" name="maintitle" placeholder="A Special Title..." required>
+                    </div>
+                    <div class="item">
+                        <h4 class="maintxt">Sub Title: </h4>
+                        <p class="subtxt">(Optional)</p>
+                        <input class="txtBox" type="text" name="subtitle" placeholder="(Name, Quotes etc.)">
+                    </div>
+                    <div>
+                        <h4 class="maintxt">Date: </h4>
+                        <p class="subtxt">(Your Special Date)</p>
+                        <input class="txtBox" type="date" name="date" required>
+                    </div>
+                    <div>
+                        <h4 class="maintxt">Time: </h4>
+                        <p class="subtxt">(Your Special Moment)</p>
+                        <input class="txtBox" type="text" name="time" placeholder="03:00:22(HH:MM:SS) or 3 AM" required>
+                    </div>
+                    <div>
+                        <h4 class="maintxt">Location: </h4>
+                        <p class="subtxt">(Your Special Place)</p>
+                        <input class="txtBox" type="text" name="location" placeholder="(Country, City, Coordinates etc.)" required>
+                    </div>
+                    <div>
+                        <h4 class="maintxt">Order Notes: </h4>
+                        <p class="subtxt">(Optional)</p>
+                        <input class="txtBox" type="text" name="notes" placeholder="Any special instructions you want to give...">
+                    </div>
+                    <input type="text" name="ProductName" value="@Product_Name[0]" hidden />
+                    <input type="number" name="ProductID" value="@Product_ID[0]" hidden />
+                    <input type="text" name="Mode" value="Add" hidden />
+                    <div class="submitBtn">
+                        <input id="submitBtn" type="submit" value="Submit">
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+    <script>
+        function SetTitle(Productname) {
+            ViewBag.Title = Productname
+            ViewData["Title"] = Productname
+        }
+        window.addEventListener('scroll', function () {
+            var navbar = this.document.getElementById("#navbar");
+            let windowPosition = window.scrollY > 100;
+            if (windowPosition) {
+                navbar.classList.add("scrolled")
+                navbar.classList.remove("noScroll")
+            }
+            else {
+                navbar.classList.remove("scrolled")
+                navbar.classList.add("noScroll")
+            }
+            console.log(windowPosition);
+            console.log("def");
+        })
+    </script>
+</body>
+</html>

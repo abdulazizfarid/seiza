@@ -1,0 +1,109 @@
+﻿@font-face {
+    font-family: btn-font;
+    src: url("/Content/assets/fonts/Andromeda-eR2n.ttf");
+}
+body {
+    height: 100vh;
+    background-image: url(/Content/assets/images/Sec2bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.small-container table th {
+    text-align: left;
+    padding: 5px;
+    color: #C3C3C3;
+    background-color: #202020;
+    font-weight:normal;
+}
+
+.small-container table td{
+    background-color:#3B3D3F;
+    color:#C3C3C3;
+    padding: 10px 5px;
+}
+.small-container table tr{
+border-bottom:solid 2px #202020;
+}
+.small-container table td input{
+    width:40px;
+    height: 30px;
+    padding:5px;
+}
+
+.small-container table td a {
+    color:#C3C3C3;
+    font-size:14px;
+}
+
+.small-container table td a:hover {
+    color: #0F0F0F;
+    font-size: 14px;
+}
+
+.cart-page {
+    margin: 80px auto;
+}
+
+.small-container table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.product-info{
+    display:flex;
+    flex-wrap:wrap;
+}
+.small-container table td img {
+    margin-right:10px;
+}
+.total-price{
+    display:flex;
+    justify-content:flex-end;
+}    
+.total-price table{
+    border-top: 3px solid #C3C3C3;
+    width:100%;
+    max-width:380px;
+}
+.total-price table td{
+    color:#C3C3C3;
+}
+.total-price table td:last-child{
+    padding-left:80px;
+}
+
+#empty{
+    color:#C3C3C3;
+    width:100%;
+    text-align:center;
+    align-items:center;
+    margin-bottom:50px;
+}
+#detailsBtn{
+    font-family: btn-font;
+    background: #3b3d3f;
+    padding: 0px 5px;
+    display: inline-block;
+    color: #C3C3C3;
+    letter-spacing: 0px;
+    text-decoration: none;
+    font-size: 24px;
+    overflow: hidden;
+    transition: 0.2s;
+    border: 2px solid black;
+    border-color: #C3C3C3;
+}
+#detailsBtn:hover {
+        color: #4A4A4A;
+        background: #C3C3C3;
+        box-shadow: 0 0 10px #C3C3C3, 0 0 40px #C3C3C3, 0 0 80px #C3C3C3;
+        transition-delay: 0.1s;
+        border-color: #4A4A4A;
+    }
+.detailsBtn {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 15px;
+    margin-right: 20px;
+}

@@ -1,0 +1,29 @@
+﻿@font-face {
+    font-family: h4-font;
+    src: url("/Content/assets/fonts/Updated/capsuula/capsuula.ttf");
+}
+
+@font-face {
+    font-family: btn-font;
+    src: url("/Content/assets/fonts/Andromeda-eR2n.ttf");
+}
+
+body {
+    height: 100vh;
+    background-image: url(/Content/assets/images/Sec2bg.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h2{
+    font-family:h4-font;
+    color:#C3C3C3;
+}
+#process {
+    color: #C3C3C3;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    margin-top:200px;
+    
+}
